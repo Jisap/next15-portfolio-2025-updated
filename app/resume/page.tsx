@@ -168,7 +168,7 @@ const Resume = () => {
         opacity: 1,
         transition: { delay: 2.4, duration: 0.4, ease: "easeIn" }
       }}
-      className='min-h-[80vh] flex items-center justify-center py-12 xl:py-0'
+      className='min-h-[80vh] flex items-center justify-center py-12 mt-5 xl:py-0'
     >
       <div className='container mx-auto px-8'>
         <Tabs 
@@ -176,17 +176,24 @@ const Resume = () => {
           className='flex flex-col xl:flex-row gap-[60px]'
         >
           <TabsList className='flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6 py-5 xl:mt-15'>
-            <TabsTrigger value='experience'>Experience</TabsTrigger>
-            <TabsTrigger value='education'>Education</TabsTrigger>
-            <TabsTrigger value='skills'>Skills</TabsTrigger>
-            <TabsTrigger value='about'>About me</TabsTrigger>
+            <TabsTrigger value='experience' className='w-full py-2 px-4 transition-all duration-300 data-[state=active]:bg-accent data-[state=active]:text-primary'>Experience</TabsTrigger>
+            <TabsTrigger value='education' className='w-full py-2 px-4 transition-all duration-300 data-[state=active]:bg-accent data-[state=active]:text-primary'>Education</TabsTrigger>
+            <TabsTrigger value='skills' className='w-full py-2 px-4 transition-all duration-300 data-[state=active]:bg-accent data-[state=active]:text-primary'>Skills</TabsTrigger>
+            <TabsTrigger value='about' className='w-full py-2 px-4 transition-all duration-300 data-[state=active]:bg-accent data-[state=active]:text-primary'>About me</TabsTrigger>
           </TabsList>
 
           {/* content */}
-          <div className='min-h-[70vh] w-full'>
+          <div className='min-h-[70vh] w-full mt-5 xl:mt-0'>
             {/* experience */}
             <TabsContent value='experience' className='w-full'>
-              <div className='flex flex-col gap-[30px] text-center xl:text-left'>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                  transition: { delay: 0.2, duration: 0.5, ease: 'easeIn' },
+                }}
+                className='flex flex-col gap-[30px] text-center xl:text-left'
+              >
                 <h3 className='text-4xl font-bold'>{experience.title}</h3>
                 <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{experience.description}</p>
                 <ScrollArea className='h-[400px]'>
@@ -206,12 +213,19 @@ const Resume = () => {
                     })}
                   </ul>
                 </ScrollArea>
-              </div>
+              </motion.div>
             </TabsContent>
 
             {/* education */}
             <TabsContent value='education' className='w-full'>
-              <div className='flex flex-col gap-[30px] text-center xl:text-left'>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                  transition: { delay: 0.2, duration: 0.5, ease: 'easeIn' },
+                }}
+                className='flex flex-col gap-[30px] text-center xl:text-left'
+              >
                 <h3 className='text-4xl font-bold'>{education.title}</h3>
                 <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{education.description}</p>
                 <ScrollArea className='h-[400px]'>
@@ -231,12 +245,19 @@ const Resume = () => {
                     })}
                   </ul>
                 </ScrollArea>
-              </div>
+              </motion.div>
             </TabsContent>
 
             {/* skills */}
             <TabsContent value='skills' className='w-full h-full'>
-              <div className='flex flex-col gap-[30px]'>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                  transition: { delay: 0.2, duration: 0.5, ease: 'easeIn' },
+                }}
+                className='flex flex-col gap-[30px]'
+              >
                 <div className='flex flex-col gap-[30px] text-center xl:text-left'>
                   <h3 className='text-4xl font-bold'>{skills.title}</h3>
                   <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{skills.description}</p>
@@ -261,12 +282,19 @@ const Resume = () => {
                     )
                   })}
                 </ul>
-              </div>
+              </motion.div>
             </TabsContent>
 
             {/* about */}
-            <TabsContent value='about' className='w-full xl:text-left'>
-              <div className='flex flex-col gap-[30px] text-center'>
+            <TabsContent value='about' className='w-full text-center xl:text-left mt-5 xl:mt-0'>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                  transition: { delay: 0.2, duration: 0.5, ease: 'easeIn' },
+                }}
+                className='flex flex-col gap-[30px]'
+              >
                 <h3 className='text-4xl font-bold'>{about.title}</h3>
                 <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{about.description}</p>
                 <ul className='grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0'>
@@ -279,7 +307,7 @@ const Resume = () => {
                     )
                   })}
                 </ul>
-              </div>
+              </motion.div>
             </TabsContent>
           </div>
         </Tabs>
